@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: sama-verif
+    runtime: static
+    buildCommand: echo "Site statique, rien a construire"
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: Referrer-Policy
+        value: no-referrer
